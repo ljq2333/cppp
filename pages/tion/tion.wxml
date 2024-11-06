@@ -1,0 +1,16 @@
+<view bindtap="onrand" style="width:700rpx ;height: 340rpx;background-color:#c5ebabbb ; border-radius: 24rpx;margin: 10rpx auto;">
+  <view style="display: flex;justify-content: center;padding-top: 20rpx;">
+  <view style="background: url(../../data/icon/166990290295775.png); width:500rpx;height: 170rpx;"></view>
+  </view>
+<view style="display: flex; justify-content: center;">{{cpname}}</view>
+<view style=" padding-top: 40rpx;display: flex; justify-content: center;">{{time}}</view>
+</view>
+<view wx:if="{{cpname==randcp.name}}" style="padding-left: 12rpx;padding-right: 12rpx;">
+  <van-collapse title="{{randcp.name}}" name="{{randcp.name}}">
+    <text>需要用到的食材:{{randcp.stuff}}</text>
+    <view><text>厨具:<text style="color: red;">{{randcp.tools}}</text></text></view>
+    <view><text style="color: red; font-size: 16px;">教程视频（B站）</text>
+    <text >难度：<text style="color: red;">{{if(randcp.difficulty==" ")?'简单':randcp.difficulty}}</text></text>
+    <button bindtap="copyText" data-text="{{randcp.bv}}" style="font-size: 12px;">{{randcp.bv}}（点击复制）</button></view>
+</van-collapse>
+</view>

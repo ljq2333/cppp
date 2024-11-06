@@ -1,0 +1,21 @@
+/* pages/home/home.wxss */
+.bg{
+background: linear-gradient(166deg,#69ff97,#00e4ff)}
+.ck{
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  
+}
+.h2{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.h1{
+  display: block; font-size: large; text-align: center;margin: 20rpx 0 20rpx 0;
+  font-weight: 700;
+}
+.h11{
+  display: block; font-size: large; text-align: center;margin: 0rpx 0 20rpx 0;
+  font-weight: 700;
+}

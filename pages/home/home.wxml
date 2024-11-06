@@ -1,0 +1,61 @@
+<!-- <view class="bg"> -->
+<view class="h11">蔬菜</view>
+<view class="h2">
+  <checkbox-group wx:for="{{sucai}}" wx:key="index" value="{{selcai}}" bind:chane="oncb">
+    <view>
+      <checkbox class="ck" shape="none" bindtap="addcai" data-cainame="{{item.name}}" name="{{item.name}}">{{item.emoji}}{{item.name}}</checkbox>
+    </view>
+  </checkbox-group>
+</view>
+<view class="h1">荤菜</view>
+<view class="h2">
+  <checkbox-group wx:for="{{rou}}" wx:key="index" value="{{selcai}}" bind:chane="oncb">
+    <view>
+      <checkbox class="ck" shape="none" bindtap="addcai" data-cainame="{{item.name}}" name="{{item.name}}">{{item.emoji}}{{item.name}}</checkbox>
+    </view>
+  </checkbox-group>
+</view>
+<view class="h1">主食</view>
+<view class="h2">
+  <checkbox-group wx:for="{{zhushi}}" wx:key="index" value="{{selcai}}" bind:chane="oncb">
+    <view>
+      <checkbox class="ck" shape="none" bindtap="addcai" data-cainame="{{item.name}}" name="{{item.name}}">{{item.emoji}}{{item.name}}</checkbox>
+    </view>
+  </checkbox-group>
+</view>
+
+<!-- <view class="h1" bindtap="cr">匹配模式（{{msname}}）</view> -->
+<view class="h1" >匹配模式（{{msname}}）</view>
+<view class="h2">
+  <van-button style="display: contents;" type='primary' data-m="1" bindtap="mos">模糊匹配</van-button>
+  <van-button style="display: contents;" type='info' data-m="2" bindtap='mos'>严格匹配</van-button>
+</view>
+
+<view class="h1">已选食材</view>
+<view class="h2">
+  <view wx:for="{{selcai}}" wx:key="index">
+    <button style="margin-left: 10rpx;" bind:chane="addcai" size="mini" data-name="{{item}}">{{item}}</button>
+  </view>
+</view>
+<van-divider />
+<view class="h2">
+  <van-button style="margin: 0 auto;" color="linear-gradient(135deg,#17ead9,#6078ea)" bindtap="strd">开始匹配</van-button>
+</view>
+
+
+
+<view style="margin: 0 auto;">匹配到的食谱有<text style="color: red;">{{selnum.length}}</text>个</view>
+<van-notify id="van-notify" />
+<view bin wx:if="{{selnum.length==0}}">
+
+</view>
+<van-collapse wx:for="{{selnum}}" wx:key="index" accordion value="{{ activeName }}" bind:change="oncoll">
+  <van-collapse-item title="{{caipu[item].name}}" name="{{item}}">
+    <text>需要用到的食材:{{caipu[item].stuff}}</text>
+    <view><text>厨具:<text style="color: red;">{{caipu[item].tools}}</text></text></view>
+    <view><text style="color: red; font-size: 16px;">教程视频（B站）</text>
+    <text >难度：<text style="color: red;">{{if(caipu[item].difficulty==" ")?'简单':caipu[item].difficulty}}</text></text>
+    <button bindtap="copyText" data-text="{{caipu[item].bv}}" style="font-size: 12px;">{{caipu[item].bv}}（点击复制）</button></view>
+  </van-collapse-item>
+</van-collapse>
+<!-- </view> -->
